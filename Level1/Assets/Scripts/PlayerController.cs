@@ -3,40 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-
 	public float moveSpeed;
-	private Rigidbody myRigidbody;
+	public float jumpforce;
 
-	private Vector3 moveInput;
-	private Vector3 moveVelocity;
+	private Vector3 moveDirection;
+	public float gravityScale;
 
-	private Camera mainCamera;
+	private CharacterController CC;
 
-	// Use this for initialization
-	void Start () {
-		myRigidbody = GetComponent<Rigidbody>();
-		mainCamera = FindObjectOfType<Camera>();
+	void Start()
+	{
+		CC = GetComponent<CharacterController> ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
-		moveVelocity = moveInput * moveSpeed;
 
-		Ray cameraRay = mainCamera.ScreenPointToRay (Input.mousePosition);
-		Plane groundPlane = new Plane (Vector3.up, Vector3.zero);
-		float rayLength;
+	void Update()
+	{
+		moveDirection = new Vector3 (Input.GetAxis("Horizontal") * moveSpeed, 0f, Input.GetAxis("Vertical") * moveSpeed);
 
-		if (groundPlane.Raycast (cameraRay, out rayLength)) 
+		if (Input.GetButtonDown ("Jump")) 
 		{
-			Vector3 pointToLook = cameraRay.GetPoint (rayLength);
-			Debug.DrawLine (cameraRay.origin, pointToLook, Color.blue);
-
-			transform.LookAt (pointToLook);
+			moveDirection.y = jumpforce;
 		}
-	}
 
-	void FixedUpdate (){
-		myRigidbody.velocity = moveVelocity;
+		moveDirection.y = moveDirection.y + (Physics.gravity.y * gravityScale);
+		CC.Move (moveDirection * Time.deltaTime);
 	}
 }
