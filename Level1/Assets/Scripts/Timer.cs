@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour {
 
@@ -30,6 +31,11 @@ public class Timer : MonoBehaviour {
 	{
 		finnished = true;
 		timerText.color = Color.yellow;
+	}
+
+	public void Restart()
+	{
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 }
 
