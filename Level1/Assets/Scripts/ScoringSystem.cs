@@ -15,13 +15,13 @@ public class ScoringSystem : MonoBehaviour {
 	{
 		text = GetComponent <Text> ();
 		number = 0;
-		highscore.text = PlayerPrefs.GetInt ("HighScore", 0).ToString ();
+		highscore.text = "High Score: " + PlayerPrefs.GetInt ("HighScore", 0).ToString ();
 	}
 
 	void Update ()
 	{
 		text.text = "Score: " + number;	
-		score.text = number.ToString ();
+		score.text = "Score: " + number.ToString ();
 
 		if (number > PlayerPrefs.GetInt ("HighScore", 0)) 
 		{

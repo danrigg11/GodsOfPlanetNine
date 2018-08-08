@@ -11,7 +11,6 @@ public class Timer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		startTime = Time.time;
-		
 	}
 	
 	// Update is called once per frame
@@ -24,7 +23,7 @@ public class Timer : MonoBehaviour {
 		string minutes = ((int)t / 60).ToString ();
 		string seconds = (t % 60).ToString ("f2");
 
-		timerText.text = minutes + ":" + seconds;
+		timerText.text = "Time: " + minutes + ":" + seconds;
 	}
 
 	public void Finnish()
