@@ -31,6 +31,7 @@ public class Timer : MonoBehaviour {
 	{
 		finnished = true;
 		timerText.color = Color.yellow;
+		GameObject.Find ("Score").SendMessage ("Yellow");
 	}
 
 	public void Restart()

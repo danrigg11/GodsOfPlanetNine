@@ -1,4 +1,4 @@
-OSXStandalone
+WindowsStandalone
 SceneListBegin?
 Assets/Level1.unity
 SceneListEnd?
@@ -329,3 +329,4 @@ d2a2bd333db22f480a8589e167314ecc Vuforia.UnityExtensions.dll:Vuforia.UserDefined
 f7c8aebe773f18a19ab7e124ab92c58a Assembly-CSharp.dll:.ScoringSystem
 59006b011d490646b61dbb571f87179e Assembly-CSharp.dll:.Crusher
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.RestartPad
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Spinner

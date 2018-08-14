@@ -4,11 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ScoringSystem : MonoBehaviour {
-
+	// Scoring System
 	public static int number;
 	public Text score;
 	public Text highscore;
-
 	Text text;
 
 	void Awake ()
@@ -26,7 +25,13 @@ public class ScoringSystem : MonoBehaviour {
 		if (number > PlayerPrefs.GetInt ("HighScore", 0)) 
 		{
 			PlayerPrefs.SetInt ("HighScore", number);
-			highscore.text = number.ToString ();
+			highscore.text = "High Score: " + number.ToString ();
 		}
+	}
+
+	public void Yellow()
+	{
+		highscore.color = Color.yellow;
+
 	}
 }
