@@ -25,6 +25,7 @@ public class Timer : MonoBehaviour {
 		string seconds = (t % 60).ToString ("f2");
 
 		timerText.text = "Time: " + minutes + ":" + seconds;
+
 	}
 
 	public void Finnish()
@@ -32,6 +33,7 @@ public class Timer : MonoBehaviour {
 		finnished = true;
 		timerText.color = Color.yellow;
 		GameObject.Find ("Score").SendMessage ("Yellow");
+		Time.timeScale = 0;
 	}
 
 	public void Restart()
