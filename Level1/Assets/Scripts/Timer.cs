@@ -31,8 +31,8 @@ public class Timer : MonoBehaviour {
 	public void Finnish()
 	{
 		finnished = true;
-		timerText.color = Color.yellow;
-		GameObject.Find ("Score").SendMessage ("Yellow");
+		timerText.color = Color.black;
+		GameObject.Find ("Score").SendMessage ("Black");
 		Time.timeScale = 0;
 	}
 

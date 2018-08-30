@@ -29,9 +29,9 @@ public class ScoringSystem : MonoBehaviour {
 		}
 	}
 
-	public void Yellow()
+	public void Black()
 	{
-		highscore.color = Color.yellow;
+		highscore.color = Color.black;
 
 	}
 }
