@@ -6,7 +6,7 @@ public class WinBox : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other)
 	{
-		GameObject.Find ("ThirdPersonController").SendMessage ("Finnish");
+		GameObject.Find ("Score").SendMessage ("Finnish");
 		Destroy (gameObject);
 	}
 }

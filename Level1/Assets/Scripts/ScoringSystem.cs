@@ -2,36 +2,54 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ScoringSystem : MonoBehaviour {
 	// Scoring System
 	public static int number;
 	public Text score;
 	public Text highscore;
-	Text text;
+
+	private float startTime;
+	private bool finnished = false;
 
 	void Awake ()
 	{
-		text = GetComponent <Text> ();
+		startTime = Time.time;
 		number = 0;
-		highscore.text = "|High Score: " + PlayerPrefs.GetInt ("|HighScore", 0).ToString ();
+		highscore.text = "Best: " + PlayerPrefs.GetInt ("BestTime", 0).ToString ();
 	}
 
 	void Update ()
 	{
-		text.text = "|Score: " + number;	
-		score.text = "|Score: " + number.ToString ();
+		if (finnished)
+		return;
 
-		if (number > PlayerPrefs.GetInt ("|HighScore", 0)) 
-		{
-			PlayerPrefs.SetInt ("|HighScore", number);
-			highscore.text = "|HighScore: " + number.ToString ();
-		}
+		float t = Time.time - startTime;
+
+		string minutes = ((int)t / 60).ToString ();
+		string seconds = (t % 60).ToString ("f2");
+
+		score.text = "Time: " + minutes + ":" + seconds.ToString ();
+		number = minutes + seconds;
+
 	}
 
-	public void Black()
+	public void Finnish()
 	{
-		highscore.color = Color.black;
+		finnished = true;
+		if (number > PlayerPrefs.GetInt ("BestTime", 3000)) {
+			PlayerPrefs.SetInt ("BestTime", number);
+			highscore.text = "BestTime: " + number.ToString ();
+			Time.timeScale = 0;
+		} else {
+			Time.timeScale = 0;
+		}
 
+	}
+
+	public void Restart()
+	{
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 }
