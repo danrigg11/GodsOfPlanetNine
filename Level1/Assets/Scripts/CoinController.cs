@@ -13,7 +13,7 @@ public class CoinController : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other)
 	{
-		ScoringSystem.number += scoreValue;
+		//ScoringSystem.number += scoreValue;
 		Destroy (gameObject);
 		//StartCoroutine (startTimer());
 	}

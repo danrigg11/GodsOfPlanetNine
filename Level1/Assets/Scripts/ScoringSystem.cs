@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class ScoringSystem : MonoBehaviour {
 	// Scoring System
-	public static int number;
+	public float numberMin;
+	public float numberSec;
 	public Text score;
 	public Text highscore;
 
@@ -16,8 +17,9 @@ public class ScoringSystem : MonoBehaviour {
 	void Awake ()
 	{
 		startTime = Time.time;
-		number = 0;
-		highscore.text = "Best: " + PlayerPrefs.GetInt ("BestTime", 0).ToString ();
+		numberMin = 0;
+		numberSec = 0;
+		highscore.text = "Best: " + PlayerPrefs.GetFloat ("BestTimeMin", 0) + ":" + PlayerPrefs.GetFloat ("BestTimeSec", 0).ToString("f2");
 	}
 
 	void Update ()
@@ -27,20 +29,23 @@ public class ScoringSystem : MonoBehaviour {
 
 		float t = Time.time - startTime;
 
-		string minutes = ((int)t / 60).ToString ();
-		string seconds = (t % 60).ToString ("f2");
+		float minutes = ((int)t / 60);
+		float seconds = (t % 60);
 
-		score.text = "Time: " + minutes + ":" + seconds.ToString ();
-		number = minutes + seconds;
+		score.text = "Time: " + minutes + ":" + seconds.ToString("f2");
+		numberMin = minutes;
+		numberSec = seconds;
 
 	}
 
 	public void Finnish()
 	{
 		finnished = true;
-		if (number > PlayerPrefs.GetInt ("BestTime", 3000)) {
-			PlayerPrefs.SetInt ("BestTime", number);
-			highscore.text = "BestTime: " + number.ToString ();
+		if (numberMin < PlayerPrefs.GetFloat ("BestTimeMin", 0) && numberSec < PlayerPrefs.GetFloat ("BestTimeSec", 0) || PlayerPrefs.GetFloat ("BestTimeMin", 0) < 1 && PlayerPrefs.GetFloat ("BestTimeSec", 0) < 1){
+			PlayerPrefs.SetFloat ("BestTimeMin", numberMin);
+			PlayerPrefs.SetFloat ("BestTimeSec", numberSec);
+			numberSec = Mathf.Round(numberSec * 10f) / 10f;
+			highscore.text = numberMin + ":" + numberSec;
 			Time.timeScale = 0;
 		} else {
 			Time.timeScale = 0;
