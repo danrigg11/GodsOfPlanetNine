@@ -15,8 +15,13 @@ public class ScoringSystem : MonoBehaviour {
 	private float startTime;
 	private bool finnished = false;
 
+	public GameObject tooSlowSection;
+	public GameObject newHighScoreSection;
+
 	void Awake ()
 	{
+		tooSlowSection.SetActive(false);
+		newHighScoreSection.SetActive(false);
 		startTime = Time.time;
 		numberMin = 0;
 		numberSec = 0;
@@ -55,8 +60,10 @@ public class ScoringSystem : MonoBehaviour {
 			PlayerPrefs.SetFloat ("BestTimeSec", numberSec);
 			numberSec = Mathf.Round(numberSec * 10f) / 10f;
 			highscore.text = numberMin + ":" + numberSec.ToString("f2");
+			newHighScoreSection.SetActive(true);
 			Time.timeScale = 0;
 		} else {
+			tooSlowSection.SetActive(true);
 			Time.timeScale = 0;
 		}
 
