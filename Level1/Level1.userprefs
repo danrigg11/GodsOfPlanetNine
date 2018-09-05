@@ -2,11 +2,13 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ScoringSystem.cs">
     <Files>
-      <File FileName="Assets/Scripts/ScoringSystem.cs" Line="29" Column="3" />
+      <File FileName="Assets/Scripts/ScoringSystem.cs" Line="25" Column="2" />
       <File FileName="Assets/Scripts/CactusCollider.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/CoinController.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Timer.cs" Line="17" Column="36" />
       <File FileName="Assets/Scripts/WinBox.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MainMenuController.cs" Line="16" Column="2" />
+      <File FileName="Assets/Scripts/RestartButton.cs" Line="20" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

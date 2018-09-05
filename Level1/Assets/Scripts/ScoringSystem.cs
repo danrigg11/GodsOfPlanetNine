@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class ScoringSystem : MonoBehaviour {
 	// Scoring System
 	public float numberMin;
 	public float numberSec;
-	public Text score;
-	public Text highscore;
+	public TextMeshProUGUI highscore;
+	public TextMeshProUGUI score;
 
 	private float startTime;
 	private bool finnished = false;
