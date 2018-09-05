@@ -19,7 +19,7 @@ public class ScoringSystem : MonoBehaviour {
 		startTime = Time.time;
 		numberMin = 0;
 		numberSec = 0;
-		highscore.text = "Best: " + PlayerPrefs.GetFloat ("BestTimeMin", 0) + ":" + PlayerPrefs.GetFloat ("BestTimeSec", 0).ToString("f2");
+		highscore.text = PlayerPrefs.GetFloat ("BestTimeMin", 0) + ":" + PlayerPrefs.GetFloat ("BestTimeSec", 0).ToString("f2");
 	}
 
 	void Update ()
@@ -32,7 +32,7 @@ public class ScoringSystem : MonoBehaviour {
 		float minutes = ((int)t / 60);
 		float seconds = (t % 60);
 
-		score.text = "Time: " + minutes + ":" + seconds.ToString("f2");
+		score.text = minutes + ":" + seconds.ToString("f2");
 		numberMin = minutes;
 		numberSec = seconds;
 
@@ -41,7 +41,7 @@ public class ScoringSystem : MonoBehaviour {
 	public void Finnish()
 	{
 		finnished = true;
-		if (numberMin < PlayerPrefs.GetFloat ("BestTimeMin", 0) && numberSec < PlayerPrefs.GetFloat ("BestTimeSec", 0) || PlayerPrefs.GetFloat ("BestTimeMin", 0) < 1 && PlayerPrefs.GetFloat ("BestTimeSec", 0) < 1){
+		if (numberMin <= PlayerPrefs.GetFloat ("BestTimeMin", 0) && numberSec <= PlayerPrefs.GetFloat ("BestTimeSec", 0) || PlayerPrefs.GetFloat ("BestTimeMin", 0) < 1 && PlayerPrefs.GetFloat ("BestTimeSec", 0) < 1){
 			PlayerPrefs.SetFloat ("BestTimeMin", numberMin);
 			PlayerPrefs.SetFloat ("BestTimeSec", numberSec);
 			numberSec = Mathf.Round(numberSec * 10f) / 10f;
