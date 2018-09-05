@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class MainMenuController : MonoBehaviour {
 
-	public Text highscore;
+	public TextMeshProUGUI highscore;
 
 	// Use this for initialization
 	void Start () {
@@ -18,9 +19,8 @@ public class MainMenuController : MonoBehaviour {
 		
 	}
 
-	public void Play()
+	public void PlayGame()
 	{
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-		Application.LoadLevel(2);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 	}
 }
