@@ -36,6 +36,14 @@ public class ScoringSystem : MonoBehaviour {
 		numberMin = minutes;
 		numberSec = seconds;
 
+		if (Input.GetKey(KeyCode.R))
+		{
+			float numberrestart = 00;
+			PlayerPrefs.SetFloat ("BestTimeMin", numberrestart);
+			PlayerPrefs.SetFloat ("BestTimeSec", numberrestart);
+			highscore.text = PlayerPrefs.GetFloat ("BestTimeMin", 0) + ":" + PlayerPrefs.GetFloat ("BestTimeSec", 0).ToString("f2");
+		}
+
 	}
 
 	public void Finnish()
@@ -45,7 +53,7 @@ public class ScoringSystem : MonoBehaviour {
 			PlayerPrefs.SetFloat ("BestTimeMin", numberMin);
 			PlayerPrefs.SetFloat ("BestTimeSec", numberSec);
 			numberSec = Mathf.Round(numberSec * 10f) / 10f;
-			highscore.text = numberMin + ":" + numberSec;
+			highscore.text = numberMin + ":" + numberSec.ToString("f2");
 			Time.timeScale = 0;
 		} else {
 			Time.timeScale = 0;
