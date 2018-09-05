@@ -1917,6 +1917,7 @@ GameObject:
   - component: {fileID: 168629738}
   - component: {fileID: 168629740}
   - component: {fileID: 168629739}
+  - component: {fileID: 168629741}
   m_Layer: 5
   m_Name: Coin Collector
   m_TagString: Untagged
@@ -1961,7 +1962,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 0/6
+  m_text: /6
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d62a573c923f5cb47b8ff65261033b90, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: d62a573c923f5cb47b8ff65261033b90, type: 2}
@@ -2030,10 +2031,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 168629739}
-    characterCount: 3
+    characterCount: 2
     spriteCount: 0
     spaceCount: 0
-    wordCount: 2
+    wordCount: 1
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -2062,6 +2063,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 168629737}
+--- !u!114 &168629741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 168629737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de1df5b81b9e54da9844875546d44970, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Counter: {fileID: 168629739}
 --- !u!1001 &174296890
 Prefab:
   m_ObjectHideFlags: 0
@@ -3340,8 +3353,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1316630969}
-        m_MethodName: 
+      - m_Target: {fileID: 1316630974}
+        m_MethodName: onResume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

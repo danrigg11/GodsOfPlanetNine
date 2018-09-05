@@ -28,11 +28,13 @@ public class MenuButton : MonoBehaviour {
 	public void menuPage()
 	{
 		Time.timeScale = 1;
+		coinCounter.coins = 0;
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
 	}
 	//Restart level
 	public void onRestart(){
 		Time.timeScale = 1;
+		coinCounter.coins = 0;
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 	//Resume level

@@ -6,6 +6,7 @@ public class CactusCollider : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other)
 	{
+		coinCounter.coins = 0;
 		GameObject.Find ("ThirdPersonController").SendMessage ("Restart");
 	}
 }

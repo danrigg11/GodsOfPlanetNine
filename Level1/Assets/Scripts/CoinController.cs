@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CoinController : MonoBehaviour {
 
-	public int scoreValue = 10;
+	public int scoreValue = 1;
 
 
 	void Update(){
@@ -13,7 +13,7 @@ public class CoinController : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other)
 	{
-		//ScoringSystem.number += scoreValue;
+		coinCounter.coins += scoreValue;
 		Destroy (gameObject);
 		//StartCoroutine (startTimer());
 	}
