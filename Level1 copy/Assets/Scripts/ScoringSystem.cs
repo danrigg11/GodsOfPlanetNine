@@ -14,9 +14,11 @@ public class ScoringSystem : MonoBehaviour {
 
 	private float startTime;
 	private bool finnished = false;
+    public bool startClock = false;
 
 	public GameObject tooSlowSection;
 	public GameObject newHighScoreSection;
+    public GameObject levelCage;
 
 	void Awake ()
 	{
@@ -32,8 +34,10 @@ public class ScoringSystem : MonoBehaviour {
 	{
 		if (finnished)
 		return;
-
-		float t = Time.time - startTime;
+        
+        if (startClock == true){
+            Destroy(levelCage);
+            float t = Time.time - startTime - 5.0f;
 
 		float minutes = ((int)t / 60);
 		float seconds = (t % 60);
@@ -49,6 +53,7 @@ public class ScoringSystem : MonoBehaviour {
 			PlayerPrefs.SetFloat ("BestTimeSec", numberrestart);
 			highscore.text = PlayerPrefs.GetFloat ("BestTimeMin", 0) + ":" + PlayerPrefs.GetFloat ("BestTimeSec", 0).ToString("f2");
 		}
+        }
 
 	}
 
@@ -68,6 +73,9 @@ public class ScoringSystem : MonoBehaviour {
 		}
 
 	}
+    public void clock(){
+        startClock = true;
+    }
 
 	public void Restart()
 	{
