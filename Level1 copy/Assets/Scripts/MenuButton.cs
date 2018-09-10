@@ -7,10 +7,12 @@ using UnityEngine.SceneManagement;
 public class MenuButton : MonoBehaviour {
 
 	public GameObject menuSection;
+    public GameObject menuButton;
 
 	// Use this for initialization
 	void Start () {
 		menuSection.SetActive(false);
+        menuButton.SetActive(true);
 	}
 	
 	// Update is called once per frame
@@ -23,6 +25,7 @@ public class MenuButton : MonoBehaviour {
 	{
 		menuSection.SetActive(true);
 		Time.timeScale = 0;
+        menuButton.SetActive(false);
 	}
 	//Back to menu screen
 	public void menuPage()
@@ -39,6 +42,7 @@ public class MenuButton : MonoBehaviour {
 	}
 	//Resume level
 	public void onResume(){
+        menuButton.SetActive(true);
 		menuSection.SetActive(false);
 		Time.timeScale = 1;
 	}
