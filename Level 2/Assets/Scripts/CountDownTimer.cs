@@ -12,10 +12,12 @@ public class CountDownTimer : MonoBehaviour {
     public bool CountDownFinished = false;
     
     public GameObject showObject;
+    public GameObject menuObject;
 
 	// Use this for initialization
 	void Start () {
 		showObject.SetActive(true);
+        menuObject.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -34,6 +36,7 @@ public class CountDownTimer : MonoBehaviour {
     
     public void StartLevel(){
         showObject.SetActive(false);
+        menuObject.SetActive(true);
         GameObject.Find ("Score").SendMessage ("clock");
         CountDownFinished = true;
         timeleft = 5f;
@@ -42,5 +45,6 @@ public class CountDownTimer : MonoBehaviour {
     public void StartTimerAgain(){
         CountDownFinished = false;
         showObject.SetActive(true);
+        menuObject.SetActive(false);
     }
 }
